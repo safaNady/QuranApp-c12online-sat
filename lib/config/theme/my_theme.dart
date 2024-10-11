@@ -20,5 +20,15 @@ class MyTheme {
           ),
           showSelectedLabels: true,
           showUnselectedLabels: false,
-          type: BottomNavigationBarType.fixed));
+          type: BottomNavigationBarType.fixed),
+      dividerColor: Color(0xFFB7935F),
+      textTheme: TextTheme(
+          labelMedium: TextStyle(
+              fontSize: 21,
+              fontWeight: FontWeight.w500,
+              color: Color(0xFF242424)),
+          titleMedium: TextStyle(
+              fontSize: 19,
+              color: Color(0xFF242424),
+              fontWeight: FontWeight.w400)));
 }
