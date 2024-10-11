@@ -12,13 +12,20 @@ class SplahScrean extends StatelessWidget {
         Navigator.pushReplacementNamed(context, RoutesManager.homeRoute);
       }
     });
-    return Scaffold(
-      body: Image.asset(
+    return Container(
+      child: Image.asset(
         AssetsManager.lightSplash,
         fit: BoxFit.fill,
-        width: double.infinity,
-        height: double.infinity,
       ),
     );
+
+    //Scaffold(
+    //body: Image.asset(
+    //AssetsManager.lightSplash,
+    // fit: BoxFit.fill,
+    //width: double.infinity,
+    // height: double.infinity,
+    //),
+    //);
   }
 }
