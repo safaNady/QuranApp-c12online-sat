@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran_app/core/assets_manager.dart';
-import 'package:quran_app/presentation/screens/home/tabs/radio_tab/widget/quran_item_widget.dart';
-import 'package:quran_app/presentation/screens/home/tabs/radio_tab/widget/widget_quran_tab_header.dart';
+import 'package:quran_app/presentation/screens/home/tabs/qurann_tab/widget/quran_item_widget.dart';
+import 'package:quran_app/presentation/screens/home/tabs/qurann_tab/widget/widget_quran_tab_header.dart';
 
 class QuranTab extends StatelessWidget {
   QuranTab({super.key});
@@ -248,10 +248,18 @@ class QuranTab extends StatelessWidget {
           QuranTabHeaderWidget(),
           Expanded(
             flex: 3,
-            child: ListView.builder(
+            child: ListView.separated(
+              separatorBuilder: (context, index) => Container(
+                width: double.infinity,
+                height: 3,
+                color: Theme.of(context).dividerColor,
+              ),
               itemBuilder: (context, index) => QuranItemWidget(
-                  suraName: suraNames[index],
-                  versesNumber: versesNumber[index].toString()),
+                suraItem: SuraItem(
+                    versesNumber: versesNumber[index].toString(),
+                    index: index,
+                    suraName: suraNames[index]),
+              ),
               itemCount: suraNames.length,
             ),
           )
@@ -259,4 +267,15 @@ class QuranTab extends StatelessWidget {
       ),
     );
   }
+}
+
+class SuraItem {
+  String suraName;
+  String versesNumber;
+  int index;
+
+  SuraItem(
+      {required this.suraName,
+      required this.versesNumber,
+      required this.index});
 }
